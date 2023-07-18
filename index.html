@@ -10,7 +10,7 @@
       
       <div id="header">
         <div id="navigation-bar"></div>
-        <a class="button" onclick="call1()" id="pageOne">1 page</a>
+        <a class="button"  onclick="call1()" id="pageOne">1 page</a>
         <a onclick="call2()" id="pageTwo" class="button">2 page</a>
         <a onclick="call3()" id="pageThree" class="button">3 page</a>
       </div>
@@ -70,6 +70,38 @@
           .then((response) => response.text())
           .then((navigation) => {
             document.getElementById("navigation-bar").innerHTML = navigation;
+          });
+      }
+
+      function home(){
+        fetch("./home.html")
+          .then((response) => response.text())
+          .then((layout) => {
+            document.getElementById("layout").innerHTML = layout;
+          });
+      }
+
+      function about(){
+        fetch("./about.html")
+          .then((response) => response.text())
+          .then((layout) => {
+            document.getElementById("layout").innerHTML = layout;
+          });
+      }
+
+      function service(){
+        fetch("./service.html")
+          .then((response) => response.text())
+          .then((layout) => {
+            document.getElementById("layout").innerHTML = layout;
+          });
+      }
+
+      function contact(){
+        fetch("./contact.html")
+          .then((response) => response.text())
+          .then((layout) => {
+            document.getElementById("layout").innerHTML = layout;
           });
       }
     </script>
