@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>animation</title>
   </head>
-  <body onload="ui()">
+  <body onload="ui(); clockscreen();">
     <header>
-      
       <div id="header">
         <div id="navigation-bar"></div>
-        <a class="button"  onclick="call1()" id="pageOne">1 page</a>
+        <a class="button" onclick="call1()" id="pageOne">1 page</a>
         <a onclick="call2()" id="pageTwo" class="button">2 page</a>
         <a onclick="call3()" id="pageThree" class="button">3 page</a>
       </div>
@@ -18,17 +17,22 @@
 
     <div class="content">
       <div id="layout"></div>
+        <h3 id="greating-text"></h3>
+        <h3 id="clockscreen"></h3>
     </div>
 
     <script>
       let layout = document.getElementById("layout");
       let pageOne = document.getElementById("pageOne");
       let pageTwo = document.getElementById("pageTwo");
-      ui;
+      const greetingText = document.getElementById("greating-text");
+      const clockScreen = document.getElementById("clockscreen");
       let pageThree = document.getElementById("pageThree");
       let navigation = document.getElementById("navigation-bar");
 
       function call1() {
+        greetingText.style.display="none"
+        clockScreen.style.display="none"
         pageOne.style.display = "none";
         pageTwo.style.display = "initial";
         pageThree.style.display = "initial";
@@ -41,6 +45,8 @@
       }
 
       function call2() {
+        greetingText.style.display="none"
+        clockScreen.style.display="none"
         pageTwo.style.display = "none";
         pageOne.style.display = "initial";
         pageThree.style.display = "initial";
@@ -53,6 +59,8 @@
       }
 
       function call3() {
+        greetingText.style.display="none"
+        clockScreen.style.display="none"
         pageThree.style.display = "none";
         pageTwo.style.display = "initial";
         pageOne.style.display = "initial";
@@ -73,8 +81,10 @@
           });
       }
 
-      function home(){
-        console.log('home');
+      function home() {
+        greetingText.style.display="none"
+        clockScreen.style.display="none"
+        console.log("home");
         fetch("./home.html")
           .then((response) => response.text())
           .then((layout) => {
@@ -82,8 +92,10 @@
           });
       }
 
-      function about(){
-        console.log('about');
+      function about() {
+        greetingText.style.display="none"
+        clockScreen.style.display="none"
+        console.log("about");
         fetch("./about.html")
           .then((response) => response.text())
           .then((layout) => {
@@ -91,8 +103,10 @@
           });
       }
 
-      function service(){
-        console.log('service');
+      function service() {
+        greetingText.style.display="none"
+        clockScreen.style.display="none"
+        console.log("service");
         fetch("./service.html")
           .then((response) => response.text())
           .then((layout) => {
@@ -100,14 +114,61 @@
           });
       }
 
-      function contact(){
-        console.log('contact');
+      function contact() {
+        greetingText.style.display="none"
+        clockScreen.style.display="none"
+        console.log("contact");
         fetch("./contact.html")
           .then((response) => response.text())
           .then((layout) => {
             document.getElementById("layout").innerHTML = layout;
           });
       }
+
+      
+
+      function clockscreen() {
+        time = new Date().getHours();
+        min = new Date().getMinutes();
+        sec = new Date().getSeconds();
+        setInterval(() => {
+          clockScreen.innerHTML = new Date();
+        }, 1000);
+        greetingText.style =
+          "text-align: center; color: black; font-family: 'Georgia', serif;";
+        clockScreen.style = "text-align: center;color: black";
+        console.log(time);
+        response = () => {
+          return {
+            GoodNight: "good night",
+            GoodAfternoon: "good afternoon",
+            GoodEvening: "good evening",
+            GoodMorning: "good morning",
+          };
+        };
+        switch (true) {
+          case time < 12:
+            return {
+              data: (greetingText.innerHTML = response().GoodMorning),
+            };
+
+          case time < 17:
+            return {
+              data: (greetingText.innerHTML = response().GoodAfternoon),
+            };
+
+          case time < 20:
+            return {
+              data: (greetingText.innerHTML = response().GoodEvening),
+            };
+
+          case time < 24:
+            return {
+              data: (greetingText.innerHTML = response().GoodNight),
+            };
+        }
+      }
+
     </script>
     <style>
       body {
