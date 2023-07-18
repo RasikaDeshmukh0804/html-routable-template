@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation</title>
+  </head>
+  <body onload="ui()">
+    <header>
+      
+      <div id="header">
+        <div id="navigation-bar"></div>
+        <a class="button" onclick="call1()" id="pageOne">1 page</a>
+        <a onclick="call2()" id="pageTwo" class="button">2 page</a>
+        <a onclick="call3()" id="pageThree" class="button">3 page</a>
+      </div>
+    </header>
+
+    <div class="content">
+      <div id="layout"></div>
+    </div>
+
+    <script>
+      let layout = document.getElementById("layout");
+      let pageOne = document.getElementById("pageOne");
+      let pageTwo = document.getElementById("pageTwo");
+      ui;
+      let pageThree = document.getElementById("pageThree");
+      let navigation = document.getElementById("navigation-bar");
+
+      function call1() {
+        pageOne.style.display = "none";
+        pageTwo.style.display = "initial";
+        pageThree.style.display = "initial";
+        console.log("on first page");
+        fetch("./page1.html")
+          .then((response) => response.text())
+          .then((layout) => {
+            document.getElementById("layout").innerHTML = layout;
+          });
+      }
+
+      function call2() {
+        pageTwo.style.display = "none";
+        pageOne.style.display = "initial";
+        pageThree.style.display = "initial";
+        console.log("on second page");
+        fetch("./page2.html")
+          .then((response) => response.text())
+          .then((layout) => {
+            document.getElementById("layout").innerHTML = layout;
+          });
+      }
+
+      function call3() {
+        pageThree.style.display = "none";
+        pageTwo.style.display = "initial";
+        pageOne.style.display = "initial";
+        console.log("on third page");
+        fetch("./page3.html")
+          .then((response) => response.text())
+          .then((layout) => {
+            document.getElementById("layout").innerHTML = layout;
+          });
+      }
+
+      function ui() {
+        console.log("nevi");
+        fetch("./navigational.html")
+          .then((response) => response.text())
+          .then((navigation) => {
+            document.getElementById("navigation-bar").innerHTML = navigation;
+          });
+      }
+    </script>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+      .button {
+        padding: 12px 24px;
+        background-color: transparent;
+        color: #fff;
+        border-color: silver;
+        font-size: 15px;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #23527c;
+      }
+
+      #layout {
+        border-color: silver;
+        text-align: center;
+      }
+
+      #header {
+        background-color: orange;
+      }
+
+      .content {
+        height: auto;
+        width: auto;
+      }
+    </style>
+  </body>
+</html>
