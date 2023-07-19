@@ -17,8 +17,8 @@
 
     <div class="content">
       <div id="layout"></div>
-        <h3 id="greating-text"></h3>
-        <h3 id="clockscreen"></h3>
+      <h3 id="greating-text"></h3>
+      <h3 id="clockscreen"></h3>
     </div>
 
     <script>
@@ -31,8 +31,8 @@
       let navigation = document.getElementById("navigation-bar");
 
       function call1() {
-        greetingText.style.display="none"
-        clockScreen.style.display="none"
+        greetingText.style.display = "none";
+        clockScreen.style.display = "none";
         pageOne.style.display = "none";
         pageTwo.style.display = "initial";
         pageThree.style.display = "initial";
@@ -45,8 +45,8 @@
       }
 
       function call2() {
-        greetingText.style.display="none"
-        clockScreen.style.display="none"
+        greetingText.style.display = "none";
+        clockScreen.style.display = "none";
         pageTwo.style.display = "none";
         pageOne.style.display = "initial";
         pageThree.style.display = "initial";
@@ -59,8 +59,8 @@
       }
 
       function call3() {
-        greetingText.style.display="none"
-        clockScreen.style.display="none"
+        greetingText.style.display = "none";
+        clockScreen.style.display = "none";
         pageThree.style.display = "none";
         pageTwo.style.display = "initial";
         pageOne.style.display = "initial";
@@ -82,8 +82,11 @@
       }
 
       function home() {
-        greetingText.style.display="none"
-        clockScreen.style.display="none"
+        greetingText.style.display = "none";
+        clockScreen.style.display = "none";
+        pageThree.style.display = "initial";
+        pageTwo.style.display = "initial";
+        pageOne.style.display = "initial";
         console.log("home");
         fetch("./home.html")
           .then((response) => response.text())
@@ -93,8 +96,11 @@
       }
 
       function about() {
-        greetingText.style.display="none"
-        clockScreen.style.display="none"
+        greetingText.style.display = "none";
+        clockScreen.style.display = "none";
+        pageThree.style.display = "none";
+        pageTwo.style.display = "none";
+        pageOne.style.display = "none";
         console.log("about");
         fetch("./about.html")
           .then((response) => response.text())
@@ -104,8 +110,11 @@
       }
 
       function service() {
-        greetingText.style.display="none"
-        clockScreen.style.display="none"
+        greetingText.style.display = "none";
+        clockScreen.style.display = "none";
+        pageThree.style.display = "none";
+        pageTwo.style.display = "none";
+        pageOne.style.display = "none";
         console.log("service");
         fetch("./service.html")
           .then((response) => response.text())
@@ -115,8 +124,11 @@
       }
 
       function contact() {
-        greetingText.style.display="none"
-        clockScreen.style.display="none"
+        greetingText.style.display = "none";
+        clockScreen.style.display = "none";
+        pageThree.style.display = "none";
+        pageTwo.style.display = "none";
+        pageOne.style.display = "none";
         console.log("contact");
         fetch("./contact.html")
           .then((response) => response.text())
@@ -124,8 +136,6 @@
             document.getElementById("layout").innerHTML = layout;
           });
       }
-
-      
 
       function ClockScreen() {
         time = new Date().getHours();
@@ -168,7 +178,6 @@
             };
         }
       }
-
     </script>
     <style>
       body {
